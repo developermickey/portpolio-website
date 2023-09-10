@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestkit - Portfolio Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main">
+        <div class="container">
+            <nav>
+                <h2>Best<span>kit</span></h2>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Project</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+                <p><i class="ri-mail-line"></i> info@bestkit.design</p>
+            </nav>
+            <!-- Nav Bar End -->
+
+            <!-- Hero Section Start -->
+            <div id="hero-section">
+                <div id="left">
+                    <h3>Hello Mate</h3>
+                    <h1>I'm Michle Smith a <span id="typing-text"></span></h1>
+                    <p>
+                        Hi, I'm Michle a freelance web designer from San-Francisco. <br>I help 
+                        brands trun their ideas into high quality products.
+                    </p>
+                    <div class="btn-group">
+                        <button class="books">Book a Call <i class="ri-arrow-right-s-line"></i></button>
+                        <button class="download">Download CV <i class="ri-upload-cloud-line"></i></button>
+                    </div>
+                </div>
+                <div id="right">
+                    <img src="./user.png" alt="">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        const textArray = ["Web Developer", "Web Designer", "YouTuber"];
+        const typingSpeed = 100; 
+        const typingElement = document.getElementById("typing-text");
+        
+        let textIndex = 0;
+        let charIndex = 0;
+
+        function typeText() {
+            if (charIndex < textArray[textIndex].length) {
+                typingElement.innerHTML += textArray[textIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeText, typingSpeed);
+            } else {
+                
+                setTimeout(removeText, 1000);
+            }
+        }
+
+        function removeText() {
+            if (typingElement.innerHTML.length > 0) {
+                typingElement.innerHTML = typingElement.innerHTML.slice(0, -1);
+                setTimeout(removeText, 50);
+            } else {
+                
+                textIndex = (textIndex + 1) % textArray.length;
+                charIndex = 0;
+                setTimeout(typeText, 500); 
+            }
+        }
+
+        typeText();
+    </script>
+    
+</body>
+</html>
